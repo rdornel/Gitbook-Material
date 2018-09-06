@@ -19,4 +19,5 @@
   * [EXERCÍCIOS Parte 1](exercicios-sql/exercicios-parte-1.md)
   * [EXERCÍCIOS Parte 2](exercicios-sql/exercicios-parte-2.md)
   * [EXERCÍCIOS Parte 3](exercicios-sql/exercicios-parte-3.md)
+  * [EXERCÍCIOS Procedure](exercicios-sql/exercicios-procedure.md)
 
