@@ -3,7 +3,7 @@
 1. Neste exercício vamos criar um banco de dados para armazenar os dados dos alunos de uma universidade. Além de desenhar o diagrama, criar o banco de dados e seus objetos, você deverá criar os scripts de população básica. Em seguida deverá criar as procedures que irão executar as operações de manipulação das notas e faltas. Abaixo uma sugestão de parte da solução:
 
 ```text
- USE MASTER
+    USE MASTER
     ALTER DATABASE Universidade SET SINGLE_USER WITH ROLLBACK IMMEDIATE
     GO
     DROP DATABASE Universidade;
@@ -70,7 +70,7 @@
  Exemplo de INSERT com SELECT
 
 ```text
- INSERT MATRICULA
+    INSERT MATRICULA
     (
             MATRICULA,
             CURSO,
@@ -85,7 +85,7 @@
  Exemplo de PROCEDURE para inserir \(atualizar\) as notas
 
 ```text
-CREATE PROCEDURE sp_CadastraNotas
+    CREATE PROCEDURE sp_CadastraNotas
     (
     @MATRICULA INT, @CURSO CHAR(3), @MATERIA CHAR(3)
     --,@PROFESSOR INT
@@ -107,7 +107,7 @@ CREATE PROCEDURE sp_CadastraNotas
  Exemplo de execução da PROCEDURE para inserir \(atualizar\) as notas
 
 ```text
-EXEC sp_CadastraNotas @MATRICULA = 1,  -- int
+    EXEC sp_CadastraNotas @MATRICULA = 1,  -- int
                                               @CURSO = 'ENG',     -- char(3)
                                               @MATERIA = 'BDA',   -- char(3)
                                               @PERLETIVO = '2018', -- char(4)
