@@ -203,9 +203,11 @@ EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
 						  @PARAMETRO = 4;      -- int
 ```
 
-```text
+Exemplo de INSERT - SELECT
 
-	Exemplo de INSERT - SELECT
+~~~~sql
+
+
 
 	CREATE TABLE pedidos
 	(
@@ -294,7 +296,8 @@ EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
 			--    0, -- iditem - int
 			--    0  -- idproduto - int
 			--    )
-```	
+~~~~
+	
 Exemplo de SQL
 
 ~~~~sql
