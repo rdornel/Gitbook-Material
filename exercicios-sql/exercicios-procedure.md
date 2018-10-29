@@ -84,7 +84,7 @@
 
  Exemplo de PROCEDURE para inserir \(atualizar\) as notas
 
-```text
+~~~~sqltext
     CREATE PROCEDURE sp_CadastraNotas
 	(
 		@MATRICULA INT,
@@ -189,11 +189,11 @@ EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
                       @FALTA = 2,
                       @PARAMETRO = 4;      -- int
 
-```
+~~~~
 
  Exemplo de execução da PROCEDURE para inserir \(atualizar\) as notas
 
-```text
+~~~~sql
     EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
 						  @CURSO = 'ENG',      -- char(3)
 						  @MATERIA = 'BDA',    -- char(3)
@@ -201,7 +201,7 @@ EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
 						  @NOTA = 7.0,         -- float
 						  @FALTA = 2,
 						  @PARAMETRO = 4;      -- int
-```
+~~~~
 
 Exemplo de INSERT - SELECT
 
