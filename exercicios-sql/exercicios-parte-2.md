@@ -2,13 +2,19 @@
 
 1. Faça um consulta que retorne o nome e sobrenome do cliente, seu bairro, e os valores das suas movimentações, a data ordenando as movimentações pelas mais recentes.
 
-```text
-SELECT ClienteNome, ClienteSobrenome, ClienteBairro, MovimentoData, MovimentoValor
-  FROM Clientes, Contas, Movimentos
-  WHERE Clientes.ClienteCodigo=Contas.ClienteCodigo
-  AND Contas.ContaNumero=Movimentos.ContaNumero
-  ORDER BY MovimentoData desc;
-```
+~~~sql
+	SELECT ClienteNome,
+       ClienteSobrenome,
+       ClienteBairro,
+       MovimentoData,
+       MovimentoValor
+	FROM Clientes,
+		 Contas,
+		 Movimentos
+	WHERE Clientes.ClienteCodigo = Contas.ClienteCodigo
+		  AND Contas.ContaNumero = Movimentos.ContaNumero
+	ORDER BY MovimentoData DESC;
+~~~
 
     2. Mostre o nome do cliente, sobrenome e a sua renda convertida em dolar e euro.
 
