@@ -294,6 +294,14 @@ EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
 			--    0, -- iditem - int
 			--    0  -- idproduto - int
 			--    )
-		
+```	
+Exemplo de SQL
 
+~~~~sql
+
+SELECT * FROM itens
+
+SELECT * FROM subitens
+
+~~~~
 
