@@ -178,6 +178,8 @@
 
 --ALTER TABLE MATRICULA ADD MEDIAFINAL FLOAT
 
+--ALTER TABLE MATRICULA ADD NOTAEXAME FLOAT
+
 
 EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
                       @CURSO = 'ENG',      -- char(3)
@@ -192,13 +194,106 @@ EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
  Exemplo de execução da PROCEDURE para inserir \(atualizar\) as notas
 
 ```text
-    EXEC sp_CadastraNotas @MATRICULA = 1,  -- int
-                                              @CURSO = 'ENG',     -- char(3)
-                                              @MATERIA = 'BDA',   -- char(3)
-                                              @PERLETIVO = '2018', -- char(4)
-                                              @NOTA = 7.0,     -- float
-                                              @FALTA = 4       -- int
+    EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
+						  @CURSO = 'ENG',      -- char(3)
+						  @MATERIA = 'BDA',    -- char(3)
+						  @PERLETIVO = '2018', -- char(4)
+						  @NOTA = 7.0,         -- float
+						  @FALTA = 2,
+						  @PARAMETRO = 4;      -- int
 ```
 
+```text
+
+	Exemplo de INSERT - SELECT
+
+	CREATE TABLE pedidos
+	(
+	idpedido INT,
+	idproduto INT,
+	valorpedido float
+	)
+
+	CREATE TABLE itenspedido
+	(
+	idpedido INT,
+	iditem int,
+	idproduto int
+	)
+
+	CREATE TABLE itens
+	(
+	iditem INT,
+	nome varchar(50)
+	)
+	INSERT itens
+	(
+		iditem,
+		nome
+	)
+	VALUES
+	(   1, -- iditem - int
+		'AR CONDICIONADO' -- nome - varchar(50)
+		)
+		
+
+	CREATE TABLE subitens
+	(
+	idsubitem INT,
+	iditem INT,
+	nomesubitem VARCHAR(50)
+	)
+	INSERT subitens
+	(
+		idsubitem,
+		iditem,
+		nomesubitem
+	)
+	VALUES
+	(   2, -- idsubitem - int
+		1, -- iditem - int
+		'MOTOR' -- nomesubitem - varchar(50)
+		)
+
+
+
+		SELECT * FROM itens
+		SELECT * FROM subitens
+
+		SELECT * FROM PEDIDOS
+		
+		
+		INSERT pedidos
+		(
+			idpedido,
+			idproduto,
+			valorpedido
+		)
+		VALUES
+		(   1,  -- idpedido - int
+			1,  -- idproduto - int
+			1000.00 -- valorpedido - float
+			)
+
+			DECLARE @produto INT
+			SET @produto = (SELECT idproduto FROM pedidos WHERE idpedido =1)
+
+			SELECT @produto AS 'AR COND'
+
+			INSERT itenspedido
+			(
+				idpedido,
+				iditem,
+				idproduto
+			)
+	SELECT IDPEDIDO=1, idsubitem, iditem 
+	FROM subitens WHERE iditem = 1--@CURSO
+
+			--VALUES
+			--(   0, -- idpedido - int
+			--    0, -- iditem - int
+			--    0  -- idproduto - int
+			--    )
+		
 
 
