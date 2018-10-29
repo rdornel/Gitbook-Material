@@ -1,6 +1,6 @@
 # EXERCÍCIOS Parte 2
 
-1. Faça um consulta que retorne o nome e sobrenome do cliente, seu bairro, e os valores das suas movimentações, a data ordenando as movimentações pelas mais recentes.
+ 1. Faça um consulta que retorne o nome e sobrenome do cliente, seu bairro, e os valores das suas movimentações, a data ordenando as movimentações pelas mais recentes.
 
 ~~~sql
 	SELECT ClienteNome,
@@ -16,7 +16,7 @@
 	ORDER BY MovimentoData DESC;
 ~~~
 
-2. Mostre o nome do cliente, sobrenome e a sua renda convertida em dolar e euro.
+ 2. Mostre o nome do cliente, sobrenome e a sua renda convertida em dolar e euro.
 
 ~~~sql
 	SELECT ClienteNome,
