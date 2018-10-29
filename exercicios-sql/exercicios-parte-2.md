@@ -59,88 +59,122 @@
 	FROM Clientes;
 ~~~
 
-    4. Liste todos os clientes que moram no mesmo bairro das agências do banco.
+4. Liste todos os clientes que moram no mesmo bairro das agências do banco.
 
-```text
-SELECT ClienteNome, ClienteBairro, AgenciaBairro, AgenciaNome FROM Clientes, Agencias
-  WHERE ClienteBairro=AgenciaBairro;
-```
+~~~sql
+	SELECT ClienteNome,
+       ClienteBairro,
+       AgenciaBairro,
+       AgenciaNome
+	FROM Clientes,
+		 Agencias
+	WHERE ClienteBairro = AgenciaBairro;
+~~~
 
-     5. Mostre todos os clientes que possuem número no seu e-mail.
+5. Mostre todos os clientes que possuem número no seu e-mail.
 
-```text
-SELECT Clientes.ClienteNome, Clientes.ClienteEmail
-  FROM dbo.Clientes
-  WHERE Clientes.ClienteEmail LIKE '%[0-9]%';
-```
+~~~sql
+	SELECT Clientes.ClienteNome,
+		   Clientes.ClienteEmail
+	FROM dbo.Clientes
+	WHERE Clientes.ClienteEmail LIKE '%[0-9]%';
+~~~
 
-     6. Mostre todos os clientes em que o nome da rua começa começa com R. e não com RUA.
+6. Mostre todos os clientes em que o nome da rua começa começa com R. e não com RUA.
 
-```text
-SELECT ClienteRua FROM dbo.Clientes WHERE
-  ClienteRua LIKE 'R.%'
-  AND ClienteRua NOT LIKE 'RUA%';
-```
+~~~sql
+	SELECT ClienteRua
+	FROM dbo.Clientes
+	WHERE ClienteRua LIKE 'R.%'
+		  AND ClienteRua NOT LIKE 'RUA%';
+~~~
 
-    7. Mostre o nome do cliente e a renda apenas do 5 melhores clientes com base na sua renda.
+7. Mostre o nome do cliente e a renda apenas do 5 melhores clientes com base na sua renda.
 
-```text
-SELECT TOP 5 ClienteNome, ClienteRendaAnual
-    FROM dbo.Clientes
-    ORDER BY ClienteRendaAnual DESC;
-```
+~~~sql
+	SELECT TOP 5
+		   ClienteNome,
+		   ClienteRendaAnual
+	FROM dbo.Clientes
+	ORDER BY ClienteRendaAnual DESC;
+~~~
 
-    8. Mostre o nome do cliente e a renda apenas do 5 piores clientes com base na sua renda.
+8. Mostre o nome do cliente e a renda apenas do 5 piores clientes com base na sua renda.
 
-```text
-SELECT TOP 5 ClienteNome, ClienteRendaAnual
-    FROM dbo.Clientes
-    ORDER BY ClienteRendaAnual;
-```
+~~~sql
+	SELECT TOP 5
+       ClienteNome,
+       ClienteRendaAnual
+	FROM dbo.Clientes
+	ORDER BY ClienteRendaAnual;
+~~~
 
-    9. Mostre o nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
+9. Mostre o nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
 
-```text
-SELECT ClienteNome, ClienteRua FROM dbo.Clientes
-            WHERE ClienteNumero BETWEEN 300 AND 500;
-```
+~~~sql
+	SELECT ClienteNome,
+       ClienteRua
+	FROM dbo.Clientes
+	WHERE ClienteNumero
+	BETWEEN 300 AND 500;
+~~~
 
-    10. Utilizando o conceito de sub consulta, mostre quais clientes não possuem cartão de crédito.
+10. Utilizando o conceito de sub consulta, mostre quais clientes não possuem cartão de crédito.
 
-```text
-SELECT * FROM dbo.Clientes WHERE ClienteCodigo NOT IN
-            (SELECT ClienteCodigo FROM dbo.CartaoCredito);
-```
+~~~sql
+	SELECT *
+	FROM dbo.Clientes
+	WHERE ClienteCodigo NOT IN
+		  (
+			  SELECT ClienteCodigo FROM dbo.CartaoCredito
+		  );
+~~~
 
-    11. Mostre o nome do cliente, o nome da agência e o bairro da agência, as movimentações dos clientes e o limite do cartão de crédito deles, somente para os clientes em que a conta foi aberta a partir de 2008.
+11. Mostre o nome do cliente, o nome da agência e o bairro da agência, as movimentações dos clientes e o limite do cartão de crédito deles, somente para os clientes em que a conta foi aberta a partir de 2008.
 
-```text
-SELECT ClienteNome, AgenciaNome, AgenciaBairro, MovimentoValor
-    FROM dbo.Clientes, dbo.Agencias, dbo.Contas, dbo.CartaoCredito, dbo.Movimentos
-    WHERE clientes.ClienteCodigo=Contas.ClienteCodigo
-    AND agencias.AgenciaCodigo=dbo.Contas.AgenciaCodigo
-    AND CartaoCredito.ClienteCodigo=Clientes.ClienteCodigo
-    AND dbo.Contas.ContaNumero=dbo.Movimentos.ContaNumero
-    AND ContaAbertura >= '2008-01-01';
-```
+~~~sql
+	SELECT ClienteNome,
+       AgenciaNome,
+       AgenciaBairro,
+       MovimentoValor
+	FROM dbo.Clientes,
+		 dbo.Agencias,
+		 dbo.Contas,
+		 dbo.CartaoCredito,
+		 dbo.Movimentos
+	WHERE clientes.ClienteCodigo = Contas.ClienteCodigo
+		  AND agencias.AgenciaCodigo = dbo.Contas.AgenciaCodigo
+		  AND CartaoCredito.ClienteCodigo = clientes.ClienteCodigo
+		  AND dbo.Contas.ContaNumero = dbo.Movimentos.ContaNumero
+		  AND ContaAbertura >= '2008-01-01';
+~~~
 
-    12. Faça uma consulta que classifique os clientes em Regiões conforme o bairro que moram.
+12. Faça uma consulta que classifique os clientes em Regiões conforme o bairro que moram.
 
-```text
-SELECT dbo.Clientes.ClienteNome, dbo.Clientes.ClienteBairro,
-            CASE WHEN ClienteBairro IN ('ITINGA','FLORESTA')
-            THEN 'SUL' END  AS [REGIÃO]
-            FROM Clientes;
-```
+~~~sql
+	SELECT dbo.Clientes.ClienteNome,
+		   dbo.Clientes.ClienteBairro,
+		   CASE
+			   WHEN ClienteBairro IN ( 'ITINGA', 'FLORESTA' ) THEN
+				   'SUL'
+		   END AS 'REGIÃO'
+	FROM Clientes;
+~~~
 
-    13. Mostre o nome do cliente e o tipo de movimentação, apenas para as movimentações de débito.
+13. Mostre o nome do cliente e o tipo de movimentação, apenas para as movimentações de débito.
 
-```text
-SELECT ClienteNome, MovimentoValor, MovimentoTipo , TipoMovimentoDescricao
-            FROM Clientes, Contas, Movimentos, TipoMovimento
-            WHERE Clientes.ClienteCodigo=Contas.ClienteCodigo
-            AND Contas.ContaNumero=dbo.Movimentos.ContaNumero
-            AND dbo.Movimentos.MovimentoTipo=dbo.TipoMovimento.TipoMovimentoCodigo
-            AND TipoMovimento.TipoMovimentoCodigo=-1;
-```
+~~~sql
+	SELECT ClienteNome,
+		   MovimentoValor,
+		   MovimentoTipo,
+		   TipoMovimentoDescricao
+	FROM Clientes,
+		 Contas,
+		 Movimentos,
+		 TipoMovimento
+	WHERE Clientes.ClienteCodigo = Contas.ClienteCodigo
+		  AND Contas.ContaNumero = dbo.Movimentos.ContaNumero
+		  AND dbo.Movimentos.MovimentoTipo = dbo.TipoMovimento.TipoMovimentoCodigo
+		  AND TipoMovimento.TipoMovimentoCodigo = -1;
+~~~
 
