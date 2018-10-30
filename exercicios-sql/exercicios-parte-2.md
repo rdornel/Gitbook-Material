@@ -26,7 +26,7 @@
 	FROM Clientes;
 ~~~
 
-3. Traga o nome dos clientes, o sobrenome, o bairro, o estado civil \(descrito\), o sexo \(descrito\) e classifique o cliente de acordo com a sua renda anual, C tem renda menor que 50.000, B tem renda menor que 70.000 e A tem renda acima de 70.000.
+3) Traga o nome dos clientes, o sobrenome, o bairro, o estado civil \(descrito\), o sexo \(descrito\) e classifique o cliente de acordo com a sua renda anual, C tem renda menor que 50.000, B tem renda menor que 70.000 e A tem renda acima de 70.000.
 
 ~~~sql
 
@@ -59,7 +59,7 @@
 	FROM Clientes;
 ~~~
 
-4. Liste todos os clientes que moram no mesmo bairro das agências do banco.
+4) Liste todos os clientes que moram no mesmo bairro das agências do banco.
 
 ~~~sql
 	SELECT ClienteNome,
@@ -71,7 +71,7 @@
 	WHERE ClienteBairro = AgenciaBairro;
 ~~~
 
-5. Mostre todos os clientes que possuem número no seu e-mail.
+5) Mostre todos os clientes que possuem número no seu e-mail.
 
 ~~~sql
 	SELECT Clientes.ClienteNome,
@@ -80,7 +80,7 @@
 	WHERE Clientes.ClienteEmail LIKE '%[0-9]%';
 ~~~
 
-6. Mostre todos os clientes em que o nome da rua começa começa com R. e não com RUA.
+6) Mostre todos os clientes em que o nome da rua começa começa com R. e não com RUA.
 
 ~~~sql
 	SELECT ClienteRua
@@ -89,7 +89,7 @@
 		  AND ClienteRua NOT LIKE 'RUA%';
 ~~~
 
-7. Mostre o nome do cliente e a renda apenas do 5 melhores clientes com base na sua renda.
+7) Mostre o nome do cliente e a renda apenas do 5 melhores clientes com base na sua renda.
 
 ~~~sql
 	SELECT TOP 5
@@ -99,7 +99,7 @@
 	ORDER BY ClienteRendaAnual DESC;
 ~~~
 
-8. Mostre o nome do cliente e a renda apenas do 5 piores clientes com base na sua renda.
+8) Mostre o nome do cliente e a renda apenas do 5 piores clientes com base na sua renda.
 
 ~~~sql
 	SELECT TOP 5
@@ -109,7 +109,7 @@
 	ORDER BY ClienteRendaAnual;
 ~~~
 
-9. Mostre o nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
+9) Mostre o nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
 
 ~~~sql
 	SELECT ClienteNome,
@@ -119,7 +119,7 @@
 	BETWEEN 300 AND 500;
 ~~~
 
-10. Utilizando o conceito de sub consulta, mostre quais clientes não possuem cartão de crédito.
+10) Utilizando o conceito de sub consulta, mostre quais clientes não possuem cartão de crédito.
 
 ~~~sql
 	SELECT *
@@ -130,7 +130,7 @@
 		  );
 ~~~
 
-11. Mostre o nome do cliente, o nome da agência e o bairro da agência, as movimentações dos clientes e o limite do cartão de crédito deles, somente para os clientes em que a conta foi aberta a partir de 2008.
+11) Mostre o nome do cliente, o nome da agência e o bairro da agência, as movimentações dos clientes e o limite do cartão de crédito deles, somente para os clientes em que a conta foi aberta a partir de 2008.
 
 ~~~sql
 	SELECT ClienteNome,
@@ -149,7 +149,7 @@
 		  AND ContaAbertura >= '2008-01-01';
 ~~~
 
-12. Faça uma consulta que classifique os clientes em Regiões conforme o bairro que moram.
+12) Faça uma consulta que classifique os clientes em Regiões conforme o bairro que moram.
 
 ~~~sql
 	SELECT dbo.Clientes.ClienteNome,
@@ -161,7 +161,7 @@
 	FROM Clientes;
 ~~~
 
-13. Mostre o nome do cliente e o tipo de movimentação, apenas para as movimentações de débito.
+13) Mostre o nome do cliente e o tipo de movimentação, apenas para as movimentações de débito.
 
 ~~~sql
 	SELECT ClienteNome,
