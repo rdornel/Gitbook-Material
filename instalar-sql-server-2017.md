@@ -24,7 +24,7 @@
 
 ![](.gitbook/assets/instalar-9.PNG)
 
- Na seguinte tela, selecione os recursos que você deseja e clique em avançar.
+ Na seguinte tela, selecione Mecanismo de Banco de Dados ou Database Engine e clique em avançar.
 
 ![](.gitbook/assets/instalar-10.PNG)
 
