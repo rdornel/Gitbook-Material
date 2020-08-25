@@ -26,3 +26,29 @@ SELECT dbo.fnRetornaAno(Clientes.ClienteNascimento) FROM dbo.Clientes
 ```
 
 Exemplo de um Função com mais de um parâmetro de entrada:
+
+
+```text 
+CREATE FUNCTION DtsMinutos(@min int, @dti datetime, @dtf datetime)
+RETURNS @tbl TABLE(dt datetime)
+AS
+BEGIN
+    WHILE @dti <= @dtf
+    BEGIN
+      INSERT INTO @tbl(dt) VALUES (@dti)
+      SET @dti = DATEADD(MINUTE,@min,@dti)
+    END      
+    RETURN
+END
+```
+
+Exemplo de um Função que retorna uma tabela:
+
+```text
+CREATE FUNCTION funcionariosApos(@dt datetime)
+RETURNS TABLE
+AS
+RETURN (SELECT *
+        FROM  FUNCIONARIO
+        WHERE dataContratacao >= @dt)
+```
