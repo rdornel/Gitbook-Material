@@ -25,6 +25,27 @@ SELECT dbo.fnRetornaAno(GETDATE())
 SELECT dbo.fnRetornaAno(Clientes.ClienteNascimento) FROM dbo.Clientes
 ```
 
+Exemplo de um Função que retorna uma tabela:
+
+```sql
+CREATE FUNCTION clientesApos(@dt datetime)
+RETURNS TABLE
+AS
+RETURN (SELECT *
+        FROM  Clientes
+        WHERE ClienteNascimento >= @dt)
+
+```
+
+Exemplo de execução
+
+```sql
+SELECT * FROM CLIENTES 
+INNER JOIN 
+NASCIDOSAPOS('1980-01-01') AS FN
+ON CLIENTES.CLIENTENASCIMENTO=FN.CLIENTENASCIMENTO
+```
+
 Exemplo de um Função com mais de um parâmetro de entrada:
 
 ```sql
@@ -48,27 +69,7 @@ select * from DtsMinutos(1,getdate(),getdate()+1)
 
 ```
 
-Exemplo de um Função que retorna uma tabela:
 
-
-
-```sql
-CREATE FUNCTION clientesApos(@dt datetime)
-RETURNS TABLE
-AS
-RETURN (SELECT *
-        FROM  Clientes
-        WHERE ClienteNascimento >= @dt)
-
-```
-
-Exemplo de execução
-
-```sql
-select * from nascidosApos('1980-01-01') as fn INNER join 
-        Clientes on clientes.ClienteNascimento=fn.ClienteNascimento
-
-```
 
 Outros tipos de funções
 
