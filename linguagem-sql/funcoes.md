@@ -53,12 +53,13 @@ Exemplo de um Função que retorna uma tabela:
 
 
 ```sql
-CREATE FUNCTION funcionariosApos(@dt datetime)
+CREATE FUNCTION clientesApos(@dt datetime)
 RETURNS TABLE
 AS
 RETURN (SELECT *
-        FROM  FUNCIONARIO
-        WHERE dataContratacao >= @dt)
+        FROM  Clientes
+        WHERE ClienteNascimento >= @dt)
+
 ```
 
 Exemplo de execução
