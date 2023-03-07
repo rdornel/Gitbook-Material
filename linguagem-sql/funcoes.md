@@ -4,7 +4,7 @@
 
 Exemplo de um Função Simples:
 
-```
+```sql
 CREATE FUNCTION fnRetornaAno (@data DATETIME)
 RETURNS int
 AS
@@ -19,7 +19,7 @@ END
 
 * Chamada ou execução da função (não esqueça de usar o dbo. antes do nome da função)
 
-```
+```sql
 SELECT dbo.fnRetornaAno(GETDATE())
 
 SELECT dbo.fnRetornaAno(Clientes.ClienteNascimento) FROM dbo.Clientes
@@ -27,7 +27,7 @@ SELECT dbo.fnRetornaAno(Clientes.ClienteNascimento) FROM dbo.Clientes
 
 Exemplo de um Função com mais de um parâmetro de entrada:
 
-```
+```sql
 CREATE FUNCTION DtsMinutos(@min int, @dti datetime, @dtf datetime)
 RETURNS @tbl TABLE(dt datetime)
 AS
@@ -52,11 +52,19 @@ Exemplo de um Função que retorna uma tabela:
 
 
 
-```
+```sql
 CREATE FUNCTION funcionariosApos(@dt datetime)
 RETURNS TABLE
 AS
 RETURN (SELECT *
         FROM  FUNCIONARIO
         WHERE dataContratacao >= @dt)
+```
+
+Exemplo de execução
+
+```sql
+select * from nascidosApos('1980-01-01') as fn INNER join 
+        Clientes on clientes.ClienteNascimento=fn.ClienteNascimento
+
 ```
