@@ -41,7 +41,16 @@ BEGIN
 END
 ```
 
+Exemplo de execução da função
+
+```sql
+select * from DtsMinutos(1,getdate(),getdate()+1)
+
+```
+
 Exemplo de um Função que retorna uma tabela:
+
+
 
 ```
 CREATE FUNCTION funcionariosApos(@dt datetime)
