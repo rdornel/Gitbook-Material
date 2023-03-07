@@ -68,3 +68,7 @@ select * from nascidosApos('1980-01-01') as fn INNER join
         Clientes on clientes.ClienteNascimento=fn.ClienteNascimento
 
 ```
+
+Outros tipos de funções
+
+[https://www.w3schools.com/sql/sql\_ref\_sqlserver.asp](https://www.w3schools.com/sql/sql\_ref\_sqlserver.asp)
