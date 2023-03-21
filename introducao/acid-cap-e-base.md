@@ -1,0 +1,2 @@
+# ACID, CAP e BASE
+
