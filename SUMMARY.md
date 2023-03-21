@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Material de Banco de Dados](README.md)
-* [Introdução](introducao/README.md)
+* [Introdução](introducao.md)
   * [Bancos de Dados](introducao/bancos-de-dados.md)
   * [Relacional Versus Não Relacional](introducao/relacional-versus-nao-relacional.md)
   * [SQL e NoSQL (Não SQL)](introducao/sql-e-nosql-nao-sql.md)
@@ -41,7 +41,9 @@
   * [Arquiteto de Dados](topicos-avancados/arquiteto-de-dados.md)
   * [Engenheiro de Dados](topicos-avancados/engenheiro-de-dados.md)
   * [Cientista de Dados](topicos-avancados/cientista-de-dados.md)
-* [Download SQL Server 2017 e SSMS](download-sql-server-2017-e-ssms.md)
-* [Instalar SQL Server 2017](instalar-sql-server-2017.md)
-* [Instalar SSMS](instalar-ssms.md)
-* [Documentação dos SGBD](documentacao-dos-sgbd.md)
+* [Extras](extras/README.md)
+  * [Download SQL Server 2017 e SSMS](extras/download-sql-server-2017-e-ssms.md)
+  * [Instalar SQL Server 2017](extras/instalar-sql-server-2017.md)
+  * [Instalar SSMS](extras/instalar-ssms.md)
+  * [Documentação dos SGBD](extras/documentacao-dos-sgbd.md)
+* [Canal no Youtube](https://www.youtube.com/rdornel)
