@@ -2,7 +2,7 @@
 
 1. Neste exercício vamos criar um banco de dados para armazenar os dados dos alunos de uma universidade. Além de desenhar o diagrama, criar o banco de dados e seus objetos, você deverá criar os scripts de população básica. Em seguida deverá criar as procedures que irão executar as operações de manipulação das notas e faltas. Abaixo uma sugestão de parte da solução:
 
-~~~~sql
+```sql
     USE master;
 	ALTER DATABASE Universidade SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
 	GO
@@ -78,18 +78,7 @@
 	('DORNEL'),
 	('WALTER');
 	GO
-	INSERT MATERIAS
-	(
-		SIGLA,
-		NOME,
-		CARGAHORARIA,
-		CURSO,
-		PROFESSOR
-	)
-	VALUES
-	('BDA', 'BANCO DE DADOS', 144, 'SIS', 1),
-	('PRG', 'PROGRAMAÇÃO', 144, 'SIS', 2);
-	GO
+	
 	INSERT MATERIAS
 	(
 		SIGLA,
@@ -158,11 +147,11 @@
 	--                        @CURSO = 'SIS' -- char(3)
 
 	--Calculo do percentual de Frequencia (NrFaltas-144*100)/144
-~~~~
+```
 
- Exemplo de INSERT com SELECT
+Exemplo de INSERT com SELECT
 
-~~~~sql
+```sql
     INSERT MATRICULA
     (
             MATRICULA,
@@ -174,11 +163,11 @@
     )
     SELECT 1 AS MATRICULA, CURSO, SIGLA,PROFESSOR, 
 		YEAR(GETDATE()) FROM MATERIAS WHERE CURSO ='ENG'
-~~~~
+```
 
- Exemplo de PROCEDURE para inserir \(atualizar\) as notas
+Exemplo de PROCEDURE para inserir (atualizar) as notas
 
-~~~~sqltext
+```sqltext
     CREATE PROCEDURE sp_CadastraNotas
 	(
 		@MATRICULA INT,
@@ -283,11 +272,11 @@ EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
                       @FALTA = 2,
                       @PARAMETRO = 4;      -- int
 
-~~~~
+```
 
- Exemplo de execução da PROCEDURE para inserir \(atualizar\) as notas
+Exemplo de execução da PROCEDURE para inserir (atualizar) as notas
 
-~~~~sql
+```sql
     EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
 						  @CURSO = 'ENG',      -- char(3)
 						  @MATERIA = 'BDA',    -- char(3)
@@ -295,11 +284,11 @@ EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
 						  @NOTA = 7.0,         -- float
 						  @FALTA = 2,
 						  @PARAMETRO = 4;      -- int
-~~~~
+```
 
 Exemplo de INSERT - SELECT
 
-~~~~sql
+```sql
 
 
 
@@ -390,15 +379,14 @@ Exemplo de INSERT - SELECT
 			--    0, -- iditem - int
 			--    0  -- idproduto - int
 			--    )
-~~~~
-	
+```
+
 Exemplo de SQL
 
-~~~~sql
+```sql
 
 SELECT * FROM itens
 
 SELECT * FROM subitens
 
-~~~~
-
+```
