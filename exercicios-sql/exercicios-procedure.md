@@ -130,23 +130,12 @@
 			FOREIGN KEY (PROFESSOR)
 			REFERENCES PROFESSOR (PROFESSOR)
 	);
-	-->PROC MATRICULA
-	--CREATE PROCEDURE procMATRICULAALUNO
-	--(
-	--@NOME VARCHAR(50),
-	--@CURSO CHAR(3)
-	--)
-	--AS
-	--BEGIN
-	--SELECT * FROM ALUNOS WHERE NOME = @NOME
-
-	--SELECT * FROM MATERIAS WHERE CURSO = @CURSO
-	--END
-	--GO
-	--EXEC procMATRICULAALUNO @NOME = 'Pedro', -- varchar(50)
-	--                        @CURSO = 'SIS' -- char(3)
-
-	--Calculo do percentual de Frequencia (NrFaltas-144*100)/144
+	GO
+	ALTER TABLE MATRICULA ADD MEDIAFINAL FLOAT;
+	GO
+	ALTER TABLE MATRICULA ADD NOTAEXAME FLOAT;
+	GO
+	
 ```
 
 Exemplo de INSERT com SELECT
@@ -163,6 +152,24 @@ Exemplo de INSERT com SELECT
     )
     SELECT 1 AS MATRICULA, CURSO, SIGLA,PROFESSOR, 
 		YEAR(GETDATE()) FROM MATERIAS WHERE CURSO ='ENG'
+
+-->PROC MATRICULA
+	--CREATE PROCEDURE procMATRICULAALUNO
+	--(
+	--@NOME VARCHAR(50),
+	--@CURSO CHAR(3)
+	--)
+	--AS
+	--BEGIN
+	--SELECT * FROM ALUNOS WHERE NOME = @NOME
+
+	--SELECT * FROM MATERIAS WHERE CURSO = @CURSO
+	--END
+	--GO
+	--EXEC procMATRICULAALUNO @NOME = 'Pedro', -- varchar(50)
+	--                        @CURSO = 'SIS' -- char(3)
+
+	--Calculo do percentual de Frequencia (NrFaltas-144*100)/144
 ```
 
 Exemplo de PROCEDURE para inserir (atualizar) as notas
@@ -234,8 +241,8 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
 					@MEDIAFINAL FLOAT;
 
 			DECLARE @CARGAHORA INT 
-			SET @CARGAHORA = (SELECT CARGAHORA 
-								FROM MATERIAS WHERE COD = @MATERIA)
+			SET @CARGAHORA = (SELECT CARGAHORARIA 
+								FROM MATERIAS WHERE SIGLA = @MATERIA)
 
 			UPDATE MATRICULA
 			SET N4 = @NOTA,
@@ -259,9 +266,7 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
 	END;
 
 
---ALTER TABLE MATRICULA ADD MEDIAFINAL FLOAT
 
---ALTER TABLE MATRICULA ADD NOTAEXAME FLOAT
 
 
 EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
