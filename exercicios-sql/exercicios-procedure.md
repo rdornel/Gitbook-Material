@@ -174,7 +174,7 @@ Exemplo de INSERT com SELECT
 
 Exemplo de PROCEDURE para inserir (atualizar) as notas
 
-```sqltext
+```sql
     CREATE PROCEDURE sp_CadastraNotas
 	(
 		@MATRICULA INT,
