@@ -33,7 +33,7 @@
   * [EXERCÍCIOS Parte 2](exercicios-sql/exercicios-parte-2.md)
   * [EXERCÍCIOS Parte 3](exercicios-sql/exercicios-parte-3.md)
   * [EXERCÍCIOS Procedure](exercicios-sql/exercicios-procedure.md)
-* [EXERCÍCIOS Procedure - Resolução](exercicios-procedure-resolucao.md)
+  * [EXERCÍCIOS Procedure - Resolução](exercicios-sql/exercicios-procedure-resolucao.md)
 * [Tópicos Avançados](topicos-avancados/README.md)
   * [Novas Tecnologias de armazenamento de dados](topicos-avancados/novas-tecnologias-de-armazenamento-de-dados/README.md)
     * [NoSQL](topicos-avancados/novas-tecnologias-de-armazenamento-de-dados/nosql.md)
