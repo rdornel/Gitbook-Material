@@ -141,7 +141,7 @@ EXEC sp_CadastraNotas @MATRICULA = 1,      -- int
                       @MATERIA = 'BDA',    -- char(3)
                       @PERLETIVO = '2023', -- char(4)
                       @NOTA = 7.0,         -- float
-                      @FALTA = 2,
+                      @FALTA = 2,          -- int
                       @BIMESTRE = 1;      -- int
 GO
 EXEC sp_CadastraNotas @MATRICULA = 1,      -- int
@@ -149,7 +149,7 @@ EXEC sp_CadastraNotas @MATRICULA = 1,      -- int
                       @MATERIA = 'BDA',    -- char(3)
                       @PERLETIVO = '2023', -- char(4)
                       @NOTA = 7.0,         -- float
-                      @FALTA = 2,
+                      @FALTA = 2,         -- int  
                       @BIMESTRE = 2;      -- int
 GO
 EXEC sp_CadastraNotas @MATRICULA = 1,      -- int
@@ -157,7 +157,7 @@ EXEC sp_CadastraNotas @MATRICULA = 1,      -- int
                       @MATERIA = 'BDA',    -- char(3)
                       @PERLETIVO = '2023', -- char(4)
                       @NOTA = 7.0,         -- float
-                      @FALTA = 2,
+                      @FALTA = 2,         -- int 
                       @BIMESTRE = 3;      -- int
 GO
 EXEC sp_CadastraNotas @MATRICULA = 1,      -- int
@@ -165,7 +165,7 @@ EXEC sp_CadastraNotas @MATRICULA = 1,      -- int
                       @MATERIA = 'BDA',    -- char(3)
                       @PERLETIVO = '2023', -- char(4)
                       @NOTA = 7.0,         -- float
-                      @FALTA = 2,
+                      @FALTA = 2,          -- int
                       @BIMESTRE = 4;      -- int             
 
 
