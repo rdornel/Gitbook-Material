@@ -174,8 +174,9 @@ Exemplo de INSERT com SELECT
 
 Exemplo de PROCEDURE para inserir (atualizar) as notas
 
-```sql
-    CREATE PROCEDURE sp_CadastraNotas
+````sql
+    ```sql
+ALTER PROCEDURE sp_CadastraNotas
 	(
 		@MATRICULA INT,
 		@CURSO CHAR(3),
@@ -183,101 +184,97 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
 		@PERLETIVO CHAR(4),
 		@NOTA FLOAT,
 		@FALTA INT,
-		@PARAMETRO INT
+		@BIMESTRE INT
 	)
 	AS
-	BEGIN
+BEGIN
 
-		IF @PARAMETRO = 1
-		BEGIN
+		IF @BIMESTRE = 1
+		    BEGIN
 
-			UPDATE MATRICULA
-			SET N1 = @NOTA,
-				F1 = @FALTA,
-				TOTALPONTOS = @NOTA,
-				TOTALFALTAS = @FALTA,
-				MEDIA = @NOTA
-			WHERE MATRICULA = @MATRICULA
-				  AND CURSO = @CURSO
-				  AND MATERIA = @MATERIA
-				  AND PERLETIVO = @PERLETIVO;
-		END;
+                UPDATE MATRICULA
+                SET N1 = @NOTA,
+                    F1 = @FALTA,
+                    TOTALPONTOS = @NOTA,
+                    TOTALFALTAS = @FALTA,
+                    MEDIA = @NOTA
+                WHERE MATRICULA = @MATRICULA
+                    AND CURSO = @CURSO
+                    AND MATERIA = @MATERIA
+                    AND PERLETIVO = @PERLETIVO;
+		    END
 
-		ELSE IF @PARAMETRO = 2
-		BEGIN
+        ELSE 
+        
+        IF @BIMESTRE = 2
+            BEGIN
 
-			UPDATE MATRICULA
-			SET N2 = @NOTA,
-				F2 = @FALTA,
-				TOTALPONTOS = @NOTA + N1,
-				TOTALFALTAS = @FALTA + F1,
-				MEDIA = (@NOTA + N1) / 2
-			WHERE MATRICULA = @MATRICULA
-				  AND CURSO = @CURSO
-				  AND MATERIA = @MATERIA
-				  AND PERLETIVO = @PERLETIVO;
-		END;
+                UPDATE MATRICULA
+                SET N2 = @NOTA,
+                    F2 = @FALTA,
+                    TOTALPONTOS = @NOTA + N1,
+                    TOTALFALTAS = @FALTA + F1,
+                    MEDIA = (@NOTA + N1) / 2
+                WHERE MATRICULA = @MATRICULA
+                    AND CURSO = @CURSO
+                    AND MATERIA = @MATERIA
+                    AND PERLETIVO = @PERLETIVO;
+            END
 
-		ELSE IF @PARAMETRO = 3
-		BEGIN
+        ELSE 
+        
+        IF @BIMESTRE = 3
+            BEGIN
 
-			UPDATE MATRICULA
-			SET N3 = @NOTA,
-				F3 = @FALTA,
-				TOTALPONTOS = @NOTA + N1 + N2,
-				TOTALFALTAS = @FALTA + F1 + F2,
-				MEDIA = (@NOTA + N1 + N2) / 3
-			WHERE MATRICULA = @MATRICULA
-				  AND CURSO = @CURSO
-				  AND MATERIA = @MATERIA
-				  AND PERLETIVO = @PERLETIVO;
-		END;
+                UPDATE MATRICULA
+                SET N3 = @NOTA,
+                    F3 = @FALTA,
+                    TOTALPONTOS = @NOTA + N1 + N2,
+                    TOTALFALTAS = @FALTA + F1 + F2,
+                    MEDIA = (@NOTA + N1 + N2) / 3
+                WHERE MATRICULA = @MATRICULA
+                    AND CURSO = @CURSO
+                    AND MATERIA = @MATERIA
+                    AND PERLETIVO = @PERLETIVO;
+            END
 
-		ELSE IF @PARAMETRO = 4
-		BEGIN
+        ELSE 
+        
+        IF @BIMESTRE = 4
+            BEGIN
 
-			DECLARE @RESULTADO VARCHAR(50),
-					@FREQUENCIA FLOAT,
-					@MEDIAFINAL FLOAT;
+                DECLARE @RESULTADO VARCHAR(50),
+                        @FREQUENCIA FLOAT,
+                        @MEDIAFINAL FLOAT,
+                        @CARGAHORA INT 
+                
+                SET @CARGAHORA = (
+                    SELECT CARGAHORARIA FROM MATERIAS 
+                    WHERE       SIGLA = @MATERIA
+                            AND CURSO = @CURSO)
 
-			DECLARE @CARGAHORA INT 
-			SET @CARGAHORA = (SELECT CARGAHORARIA 
-								FROM MATERIAS WHERE SIGLA = @MATERIA)
-
-			UPDATE MATRICULA
-			SET N4 = @NOTA,
-				F4 = @FALTA,
-				TOTALPONTOS = @NOTA + N1 + N2 + N3,
-				TOTALFALTAS = @FALTA + F1 + F2 + F3,
-				MEDIA = (@NOTA + N1 + N2 + N3) / 4,
-				MEDIAFINAL = (@NOTA + N1 + N2 + N3) / 4,
-				PERCFREQ = 100 -( ((@FALTA + F1 + F2 + F3)*144 )/100)
-					   WHERE MATRICULA = @MATRICULA
-				  AND CURSO = @CURSO
-				  AND MATERIA = @MATERIA
-				  AND PERLETIVO = @PERLETIVO;
-
-
-		END;
-
-		SELECT *
-		FROM MATRICULA
-		WHERE MATRICULA = @MATRICULA;
-	END;
-
-
+                UPDATE MATRICULA
+                SET N4 = @NOTA,
+                    F4 = @FALTA,
+                    TOTALPONTOS = @NOTA + N1 + N2 + N3,
+                    TOTALFALTAS = @FALTA + F1 + F2 + F3,
+                    MEDIA = (@NOTA + N1 + N2 + N3) / 4,
+                    MEDIAFINAL = (@NOTA + N1 + N2 + N3) / 4,
+                    PERCFREQ = 100 -( ((@FALTA + F1 + F2 + F3)*@CARGAHORA )/100)
+                        WHERE MATRICULA = @MATRICULA
+                    AND CURSO = @CURSO
+                    AND MATERIA = @MATERIA
+                    AND PERLETIVO = @PERLETIVO;
 
 
+            END
+            
 
-EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
-                      @CURSO = 'ENG',      -- char(3)
-                      @MATERIA = 'BDA',    -- char(3)
-                      @PERLETIVO = '2018', -- char(4)
-                      @NOTA = 7.0,         -- float
-                      @FALTA = 2,
-                      @PARAMETRO = 4;      -- int
+		SELECT * FROM MATRICULA	WHERE MATRICULA = @MATRICULA
+END
 
 ```
+````
 
 Exemplo de execução da PROCEDURE para inserir (atualizar) as notas
 
