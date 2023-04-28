@@ -28,6 +28,7 @@
   * [TRANSAÇÕES](linguagem-sql/transacoes.md)
   * [TRIGGERS](linguagem-sql/triggers.md)
   * [INDICES](linguagem-sql/indices.md)
+  * [CTE](linguagem-sql/cte.md)
 * [Exercícios SQL](exercicios-sql/README.md)
   * [EXERCÍCIOS Parte 1](exercicios-sql/exercicios-parte-1.md)
   * [EXERCÍCIOS Parte 2](exercicios-sql/exercicios-parte-2.md)
