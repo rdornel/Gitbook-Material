@@ -17,6 +17,7 @@
     * [Portal para praticar](fundamentos/algebra-relacional/portal-para-praticar.md)
     * [Script para criar o banco de dados](fundamentos/algebra-relacional/script-para-criar-o-banco-de-dados.md)
     * [Exercício](fundamentos/algebra-relacional/exercicio.md)
+    * [Respostas - Álgebra Relacional](fundamentos/algebra-relacional/respostas-algebra-relacional.md)
 * [Linguagem SQL](linguagem-sql/README.md)
   * [Linguagens de Banco de Dados](linguagem-sql/linguagens-de-banco-de-dados.md)
   * [CREATE](linguagem-sql/create.md)
