@@ -10,13 +10,17 @@ description: Exercício Álgebra Relacional I
 
 2 – Selecionar todas as tuplas da relação conta cujo nome da agência é “Blumenau” possua saldo menor que 800.&#x20;
 
-3 – Selecionar todas as tuplas da relação agencia situadas nas cidades de “Blumenau” e “Joinville”. 4 – Selecionar todas as tuplas da relação agência situada na cidade de “Joinville” e valor de fundos entre 800000 e 1200000.&#x20;
+3 – Selecionar todas as tuplas da relação agencia situadas nas cidades de “Blumenau” e “Joinville”.&#x20;
+
+4 – Selecionar todas as tuplas da relação agência situada na cidade de “Joinville” e valor de fundos entre 800000 e 1200000.&#x20;
 
 5 – Listar o numero da conta de todas as tuplas da relação conta cujo saldo é maior que 900.&#x20;
 
 6 – Listar o número da conta e o saldo de todas as tuplas da relação conta cujo nome da agência é “Blumenau” e possua saldo menor que 800.&#x20;
 
-7 – Listar o nome da agência e o nome da cidade de todas as tuplas da relação agência situadas nas cidades de “Blumenau” e “Joinville”. 8 – Listar o nome da agencia e o valor dos fundos de todas as tuplas da relação agencia situada na cidade de “Joinville” e valor de fundos entre 800000 e 1200000.&#x20;
+7 – Listar o nome da agência e o nome da cidade de todas as tuplas da relação agência situadas nas cidades de “Blumenau” e “Joinville”.&#x20;
+
+8 – Listar o nome da agencia e o valor dos fundos de todas as tuplas da relação agencia situada na cidade de “Joinville” e valor de fundos entre 800000 e 1200000.&#x20;
 
 9 – Listar o nome da agência, o número do empréstimo e o nome do cliente de todos os clientes que constam na relação devedor.&#x20;
 
