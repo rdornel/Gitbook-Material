@@ -1,5 +1,5 @@
 ---
-description: Professor Rodrigo Ramos Dornel Exercício Álgebra Relacional I
+description: Exercício Álgebra Relacional I
 ---
 
 # Exercício
