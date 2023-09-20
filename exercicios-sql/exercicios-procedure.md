@@ -153,23 +153,7 @@ Exemplo de INSERT com SELECT
     SELECT 1 AS MATRICULA, CURSO, SIGLA,PROFESSOR, 
 		YEAR(GETDATE()) FROM MATERIAS WHERE CURSO ='ENG'
 
--->PROC MATRICULA
-	--CREATE PROCEDURE procMATRICULAALUNO
-	--(
-	--@NOME VARCHAR(50),
-	--@CURSO CHAR(3)
-	--)
-	--AS
-	--BEGIN
-	--SELECT * FROM ALUNOS WHERE NOME = @NOME
 
-	--SELECT * FROM MATERIAS WHERE CURSO = @CURSO
-	--END
-	--GO
-	--EXEC procMATRICULAALUNO @NOME = 'Pedro', -- varchar(50)
-	--                        @CURSO = 'SIS' -- char(3)
-
-	--Calculo do percentual de Frequencia (NrFaltas-144*100)/144
 ```
 
 Exemplo de PROCEDURE para inserir (atualizar) as notas
@@ -274,6 +258,23 @@ END
 
 ```
 
+Exemplo de Procedure - MATRICULA ALUNO NAS DISCIPLINAS
+
+```sql
+
+PROC MATRICULA
+
+CREATE PROCEDURE procMATRICULAALUNO
+(
+@NOME VARCHAR(50),
+@CURSO CHAR(3)
+)
+AS
+	BEGIN
+	
+	END
+```
+
 Exemplo de execução da PROCEDURE para inserir (atualizar) as notas
 
 ```sql
@@ -285,110 +286,5 @@ EXEC sp_CadastraNotas @MATRICULA = 1,      -- int
                       @FALTA = 2,
                       @BIMESTRE = 1      -- int
           
-
-```
-
-Exemplo de INSERT - SELECT
-
-```sql
-
-
-
-	CREATE TABLE pedidos
-	(
-	idpedido INT,
-	idproduto INT,
-	valorpedido float
-	)
-
-	CREATE TABLE itenspedido
-	(
-	idpedido INT,
-	iditem int,
-	idproduto int
-	)
-
-	CREATE TABLE itens
-	(
-	iditem INT,
-	nome varchar(50)
-	)
-	INSERT itens
-	(
-		iditem,
-		nome
-	)
-	VALUES
-	(   1, -- iditem - int
-		'AR CONDICIONADO' -- nome - varchar(50)
-		)
-		
-
-	CREATE TABLE subitens
-	(
-	idsubitem INT,
-	iditem INT,
-	nomesubitem VARCHAR(50)
-	)
-	INSERT subitens
-	(
-		idsubitem,
-		iditem,
-		nomesubitem
-	)
-	VALUES
-	(   2, -- idsubitem - int
-		1, -- iditem - int
-		'MOTOR' -- nomesubitem - varchar(50)
-		)
-
-
-
-		SELECT * FROM itens
-		SELECT * FROM subitens
-
-		SELECT * FROM PEDIDOS
-		
-		
-		INSERT pedidos
-		(
-			idpedido,
-			idproduto,
-			valorpedido
-		)
-		VALUES
-		(   1,  -- idpedido - int
-			1,  -- idproduto - int
-			1000.00 -- valorpedido - float
-			)
-
-			DECLARE @produto INT
-			SET @produto = (SELECT idproduto FROM pedidos WHERE idpedido =1)
-
-			SELECT @produto AS 'AR COND'
-
-			INSERT itenspedido
-			(
-				idpedido,
-				iditem,
-				idproduto
-			)
-	SELECT IDPEDIDO=1, idsubitem, iditem 
-	FROM subitens WHERE iditem = 1--@CURSO
-
-			--VALUES
-			--(   0, -- idpedido - int
-			--    0, -- iditem - int
-			--    0  -- idproduto - int
-			--    )
-```
-
-Exemplo de SQL
-
-```sql
-
-SELECT * FROM itens
-
-SELECT * FROM subitens
 
 ```
