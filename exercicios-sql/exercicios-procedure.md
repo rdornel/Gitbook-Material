@@ -138,24 +138,6 @@
 	
 ```
 
-Exemplo de INSERT com SELECT
-
-```sql
-    INSERT MATRICULA
-    (
-            MATRICULA,
-            CURSO,
-            MATERIA,
-            PROFESSOR,
-            PERLETIVO
-
-    )
-    SELECT 1 AS MATRICULA, CURSO, SIGLA,PROFESSOR, 
-		YEAR(GETDATE()) FROM MATERIAS WHERE CURSO ='ENG'
-
-
-```
-
 Exemplo de PROCEDURE para inserir (atualizar) as notas
 
 ```sql
