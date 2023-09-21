@@ -255,6 +255,8 @@ AS
 	BEGIN
 	
 	END
+GO
+EXEC procMATRICULAALUNO 'PEDRO','ENG'
 ```
 
 Exemplo de execução da PROCEDURE para inserir (atualizar) as notas
