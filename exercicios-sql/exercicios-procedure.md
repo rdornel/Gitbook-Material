@@ -223,10 +223,8 @@ BEGIN
                     F4 = @FALTA,
                     TOTALPONTOS = @NOTA + N1 + N2 + N3,
                     TOTALFALTAS = @FALTA + F1 + F2 + F3,
-                    MEDIA = (@NOTA + N1 + N2 + N3) / 4,
-                    MEDIAFINAL = (@NOTA + N1 + N2 + N3) / 4,
-                    PERCFREQ = 100 -( ((@FALTA + F1 + F2 + F3)*@CARGAHORA )/100)
-                        WHERE MATRICULA = @MATRICULA
+                    MEDIA = (@NOTA + N1 + N2 + N3) / 4
+                WHERE MATRICULA = @MATRICULA
                     AND CURSO = @CURSO
                     AND MATERIA = @MATERIA
                     AND PERLETIVO = @PERLETIVO;
